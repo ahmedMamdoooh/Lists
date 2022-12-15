@@ -2,6 +2,7 @@ class Solution {
 public:
     int maximumWealth(vector<vector<int>>& accounts) {
         vector<int> arr(50);
+        int max=arr[0];
         const  int rows = accounts.size();
         const int column = accounts[0].size();
         for (int i = 0; i < rows; i++)
@@ -9,15 +10,11 @@ public:
             for (int j = 0; j < column; j++)
             {
                 arr[i] += accounts[i][j];
-            }
-        }
-        int max=arr[0];
-        for (int i = 0; i < rows; i++)
-        {
-            if (max < arr[i])
+                if (max < arr[i])
                 max = arr[i];
-            else
+                else
                 continue;
+            }
         }
         return max;
     }
