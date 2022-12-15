@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int maximumWealth(vector<vector<int>>& accounts) {
+        vector<int> arr(50);
+        const  int rows = accounts.size();
+        const int column = accounts[0].size();
+        for (int i = 0; i < accounts.size(); i++)
+        {
+            for (int j = 0; j < column; j++)
+            {
+                arr[i] += accounts[i][j];
+            }
+        }
+        int max=arr[0];
+        for (int i = 0; i < accounts.size(); i++)
+        {
+            if (max < arr[i])
+                max = arr[i];
+            else
+                continue;
+        }
+        return max;
+    }
+};
