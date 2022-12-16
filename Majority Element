@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        const int maxInteger = *max_element(nums.begin(), nums.end());
+        const int size = nums.size();
+        vector<int>Pfrequency(maxInteger + 1);
+        vector<int>Nfrequency(maxInteger + 1);
+        for (int i = 0; i < size; i++)
+        {
+            if (nums[i]>=0)
+            Pfrequency[nums[i]]++;
+            else
+            Nfrequency[nums[i]*-1];
+        }
+          int Pmajority = 0,Nmajority=0;
+        for (int i = 0; i < maxInteger + 1; i++)
+        {
+            if (Pfrequency[i]>(size/2))
+                Pmajority = i;
+            else if (Nfrequency[i]>(size/2))
+                Nmajority=i;
+        }
+        if (Pmajority>Nmajority)
+        return Pmajority;
+        else
+        return -1*Nmajority  ; 
+         }
+};
