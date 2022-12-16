@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int largestAltitude(vector<int>& gain) {
+        const short size=gain.size();
+        vector<int>highestAltitude(size+1);
+        highestAltitude[0]=0;
+        for (int i=1;i<size+1;i++)
+        {
+            highestAltitude[i]=highestAltitude[i-1]+gain[i-1];
+        }
+        short max=*max_element(highestAltitude.begin(),highestAltitude.end());
+        return max;
+    }
+};
