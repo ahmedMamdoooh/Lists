@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int countNegatives(vector<vector<int>>& grid) {
+        short count=0;
+        const short rows=grid.size();
+        const short columns=grid[0].size();
+        for (int i=0;i<rows;i++)
+        {
+            for (int j=0;j<columns;j++)
+            {
+                if (grid[i][j]<0)
+                count++;
+            }
+        }
+        return count;
+    }
+};
